@@ -5,7 +5,7 @@
 
 # Task 1 – Single Queue
 
-![Task 1 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/task1.png)        
+![Task 1 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/blob/master/task1.png)        
 
 TomEE comes with the JMS implementation ActiveMQ. To use it, you'll use the @Resource annotation in your Java code to automatically create and access a queue (or more – in the other tasks).  Download the Lab10.zip from the Schedule page. Unzip it; there should be two .java file and one .jsp file; you'll need it in steps 5, 6, and 11.
 
@@ -45,7 +45,7 @@ In the Run/Debug Configurations, Deployment tab,
 
 # Task 2 – Two Phase Process
 
-![Task 2 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/task2.png)
+![Task 2 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/blob/master/task2.png)
 
 Modify your project like this:
 1. MyQueueListener adds text to the message (e.g. <received text> + " after processing by MyQueueListener") and sends the new message to a new Queue named jms/myQueueTwo.
@@ -55,7 +55,7 @@ Modify your project like this:
 
 # Task 3 – Servlet Reading From a Queue
 
-![Task 3 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/task3.png)
+![Task 3 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/blob/master/task3.png)
 
 1. Create a new Queue jms/myQueueThree.
 2. Modify MyQueueListener to write to myQueueThree instead of myQueueTwo.
