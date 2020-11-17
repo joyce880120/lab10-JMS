@@ -5,9 +5,9 @@
 
 # Task 1 – Single Queue
 
-![Task 1 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/blob/master/task1.png)        
+![Task 1 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/task1.png)        
 
-TomEE comes with the JMS implementation ActiveMQ. To use it, you'll use the @Resource annotation in your Java code to automatically create and access a queue (or more – in the other tasks).  Download the Lab10.zip from the Schedule page. Unzip it; there should be two .java file and one .jsp file; you'll need it in steps 5, 6, and 11.
+TomEE comes with the JMS implementation ActiveMQ. To use it, you'll use the @Resource annotation in your Java code to automatically create and access a queue (or more – in the other tasks).  Download the Lab10.zip from Canvas. Unzip it; there should be two .java files and one .jsp file; you'll need it in steps 5, 6, and 11.
 
 Build an application consisting of a web application and a Message Driven Bean
 1. Select File -> New -> Project
@@ -26,7 +26,7 @@ Build an application consisting of a web application and a Message Driven Bean
 14. On the Server tab, scroll to the bottom to the Build window. Click the + sign and choose Build Artifacts. Click the box for Lab10: war exploded artifact and click Okay. IMPORTANT: Both Lab10: war exploded and MDB: ejb exploded should show up in the Build window – if one of them is missing, click the + sign, Build Artifacts, and choose that one.
 15. Scroll up and click the Deployment tab. Both MDB:ejb exploded and Lab10:war exploded should be in the Deploy window. If not, click the + sign at the bottom, click Artifact, and the window should populate with the other artifact.
 16. Click on Lab10:war exploded. In the Application content text box, make sure it says "/", without the rest of the Lab10 text. Click OK.
-17. Now you can run the application – click the green arrow. After it builds, a new browser window should pop up. Type in your own message in the text box and click the "Send to … " button. The browser should display that <your message> was written to a queue. More importantly, the Run – Output window in Intellij should say, Servlet sent <your message> to queue, and MyQueueListener received: <your message>. That last print statement is triggered by the queue listener reacting to the queue event.
+17. Now you can run the application – click the green arrow. After it builds (it may take a few moments), a new browser window should pop up. Type in your own message in the text box and click the "Send to … " button. The browser should display that <your message> was written to a queue. More importantly, the Run – Output window in Intellij should say, Servlet sent <your message> to queue, and MyQueueListener received: <your message>. That last print statement is triggered by the queue listener reacting to the queue event.
 
 That's a lot of steps. If something isn't working, here's a list of things to check on before seeking help:
 In the File->Project Structure
@@ -45,7 +45,7 @@ In the Run/Debug Configurations, Deployment tab,
 
 # Task 2 – Two Phase Process
 
-![Task 2 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/blob/master/task2.png)
+![Task 2 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/task2.png)
 
 Modify your project like this:
 1. MyQueueListener adds text to the message (e.g. <received text> + " after processing by MyQueueListener") and sends the new message to a new Queue named jms/myQueueTwo.
@@ -55,7 +55,7 @@ Modify your project like this:
 
 # Task 3 – Servlet Reading From a Queue
 
-![Task 3 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/blob/master/task3.png)
+![Task 3 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/task3.png)
 
 1. Create a new Queue jms/myQueueThree.
 2. Modify MyQueueListener to write to myQueueThree instead of myQueueTwo.
