@@ -22,6 +22,7 @@ IntelliJ 2020 has a different interface for creating projects. The basic directi
 4. Expand the project, right click on src. [2020: put code under src->main->java; remove com.example.Lab10 and HelloServlet (if present).] Choose New Java Class. Name the class MyQueueWriter.
 5. Copy the code for this class from the downloaded file and paste it over the generated code. If needed – if it's printed in red, hover your cursor over something in red and choose JavaEE 6 and download it.
 6. In the project window, expand web [2020: webapp] and open the default index.jsp. Copy the code for this from the downloaded file and paste it over the generated code.
+
 **Message Driven Bean**
 7. In the Project window at the top, right click on the Project (Lab10) and choose New Module.
 8. Pick Java Enterprise on the left and EJB:Enterprise Java Beans on the right (in the  Libraries and Frameworks section) [2020: Libraries and Frameworks is on the next screen; check the box for Enterprise Java Beans and uncheck the Servlet box.] Again make sure that TomEE is in the Application Server box. Don't worry about the *Use Library* part below; that will get fixed later. Click Next.
@@ -49,7 +50,7 @@ In the Run/Debug Configurations, Deployment tab,
    - in the Deploy area, make sure both Artifacts are listed to deploy
    - also in the Deploy area, single click on the war and make sure the Application Context is what you want it to be (e.g. "/")
 
-:checkered_flag:**CHECKPOINT: Completion of Task 1 is the lab checkpoint.**
+:checkered_flag: **CHECKPOINT: Completion of Task 1 is the lab checkpoint.**
 
 
 # Task 2 – Two Phase Process
@@ -77,4 +78,4 @@ d. The code to read from a Queue is very similar to writing to one, only:
 - use receive to get a message instead of send
 - use receive(1000) to have the receive time out if no messages are available.
 
-:checkered_flag:**Show working Task 2 and Task 3 to your TA**
+:checkered_flag: **Show working Task 2 and Task 3 to your TA**
