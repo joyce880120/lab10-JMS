@@ -7,28 +7,36 @@
 
 ![Task 1 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/blob/master/task1.png)        
 
-TomEE comes with the JMS implementation ActiveMQ. To use it, you'll use the @Resource annotation in your Java code to automatically create and access a queue (or more – in the other tasks).  Download the Lab10.zip from Canvas. Unzip it; there should be two .java files and one .jsp file; you'll need it in steps 5, 6, and 11.
+TomEE comes with the JMS implementation of Apache ActiveMQ. To use it, you'll use the @Resource annotation in your Java code to automatically create and access a queue (or more – in the other tasks).  Download the Lab10.zip from Canvas. Unzip it; there should be two .java files and one .jsp file; you'll need it in steps 5, 6, and 11.
 
-Build an application consisting of a web application and a Message Driven Bean
+In Task 1, you'll be writing a Servlet - nothing special about that at this point - but it will take input from your web browser (that's code in the JSP file) and write it to a *message queue* (see the diagram). The queue will be created for you using the annotations. There will be a second program, an Enterprise Java Bean that will read from that queue and simply output the message to the console.
+
+## Build an application consisting of a web application and a Message Driven Bean.
+IntelliJ 2020 has a different interface for creating projects. The basic directions for Task 1 (up to the checkpoint) are for IntelliJ 2019; I've added some details for 2020 in brackets.
+
+**Servlet**
 1. Select File -> New -> Project
-2. Select Java Enterprise on the left and Web Application on the right. Make sure the Application Server tab says TomEE.   Click Next.
-3. Name your project Lab10 and click Finish. The Project Structure window should come up – if not, choose that from the file menu.
-4. Expand the project, right click on src, choose New Java Class. Name the class MyQueueWriter.
-5. Copy the code for this class from the downloaded file and paste it over the generated code. If needed – if it's printed in red, hover your cursor over the WebServlet annotation and choose JavaEE 6 and download it.
-6. In the project window, expand web and open the default index.jsp. Copy the code for this from the downloaded file and paste it over the generated code.
-7. Right click on the Project (Lab10) and choose New Module.
-8. Pick Java Enterprise on the left and EJB:Enterprise Java Beans on the right. Again make sure that TomEE is in the Application Server box. Don't worry about the Libraries part below; that will get fixed later. Click Next.
+2. Select Java Enterprise on the left and Web Application on the right. [2020: Choose Servlet on the *next* screen.] Make sure the Application Server tab says TomEE.   Click Next.
+3. Choose JavaEE and click next. Name your project Lab10 and click Finish. The Project Structure window should come up – if not, choose that from the file menu.
+4. Expand the project, right click on src. [2020: put code under src->main->java; remove com.example.Lab10 and HelloServlet (if present).] Choose New Java Class. Name the class MyQueueWriter.
+5. Copy the code for this class from the downloaded file and paste it over the generated code. If needed – if it's printed in red, hover your cursor over something in red and choose JavaEE 6 and download it.
+6. In the project window, expand web [2020: webapp] and open the default index.jsp. Copy the code for this from the downloaded file and paste it over the generated code.
+**Message Driven Bean**
+7. In the Project window at the top, right click on the Project (Lab10) and choose New Module.
+8. Pick Java Enterprise on the left and EJB:Enterprise Java Beans on the right (in the  Libraries and Frameworks section) [2020: Libraries and Frameworks is on the next screen; check the box for Enterprise Java Beans and uncheck the Servlet box.] Again make sure that TomEE is in the Application Server box. Don't worry about the *Use Library* part below; that will get fixed later. Click Next.
 9. Name the module MDB and click Finish.
-10. In the project window, expand MDB, right click on its src folder, choose New Java Class. Name the class MyQueueListener.
-11. Copy the code for this class from the downloaded file and paste it over the generated code.
+10. In the project window, expand MDB, right click on its src folder [2020: src->main->java], choose New Java Class. Name the class MyQueueListener.
+11. Copy the code for this class from the downloaded file and paste it over the generated code. If any code is red, fix it the same way as in step 5.
 12. Take note of where both classes reference the correct queue, called jms/myQueue. These must agree to ensure that the reader reads from the same queue that the writer writes to – a simple issue, but one that you'll be in charge of for later tasks.
-13. At the top right, TomEE should be showing in the small text window. Click the down arrow and choose Edit Configurations.
-14. On the Server tab, scroll to the bottom to the Build window. Click the + sign and choose Build Artifacts. Click the box for Lab10: war exploded artifact and click Okay. IMPORTANT: Both Lab10: war exploded and MDB: ejb exploded should show up in the Build window – if one of them is missing, click the + sign, Build Artifacts, and choose that one.
+13. [2020: Right click on MDB in the Project window. Choose "Add Frameworks Support". Check the box for "EJB:Enterprise Java Beans" and click OK.] At the top right, TomEE should be showing in the small text window. Click the down arrow and choose Edit Configurations.
+14. On the Server tab, scroll to the bottom to the Build window. Click the + sign and choose Build Artifacts. Click the box for Lab10: war exploded artifact and click Okay. IMPORTANT: Both Lab10: war exploded and MDB: ejb exploded should show up in the Build window – if one of them is missing, click the + sign, then Build Artifacts, and choose both by checking the boxes. Highlight "Build 2 Artifacts" and click Apply.
 15. Scroll up and click the Deployment tab. Both MDB:ejb exploded and Lab10:war exploded should be in the Deploy window. If not, click the + sign at the bottom, click Artifact, and the window should populate with the other artifact.
 16. Click on Lab10:war exploded. In the Application content text box, make sure it says "/", without the rest of the Lab10 text. Click OK.
-17. Now you can run the application – click the green arrow. After it builds (it may take a few moments), a new browser window should pop up. Type in your own message in the text box and click the "Send to … " button. The browser should display that <your message> was written to a queue. More importantly, the Run – Output window in Intellij should say, Servlet sent <your message> to queue, and MyQueueListener received: <your message>. That last print statement is triggered by the queue listener reacting to the queue event.
+**Test the Queue**
+17. Now you can run the application – click the green arrow. After it builds (it may take a few moments), a new browser window should pop up. Type in your own message in the text box and click the "Send to … " button. The browser should display that <your message> was written to a queue. More importantly, the Server Output window in Intellij should say, Servlet sent <your message> to queue, and MyQueueListener received: <your message>. (***Note:*** this window will have a lot of system messages in it; scroll around to find MyQueueListener's output). That last print statement is triggered by the queue listener reacting to the queue event.
 
 That's a lot of steps. If something isn't working, here's a list of things to check on before seeking help:
+  - Are you using IntelliJ 2020? Make sure you used the special 2020 instructions!
 In the File->Project Structure
   - Make sure the Project SDK is set (sometimes it does not seem to be)
   - Web module exists, and the source root points to the right place
