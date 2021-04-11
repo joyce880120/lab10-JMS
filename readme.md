@@ -24,6 +24,7 @@ IntelliJ 2020 has a different interface for creating projects. The basic directi
 6. In the project window, expand web [2020: webapp] and open the default index.jsp. Copy the code for this from the downloaded file and paste it over the generated code.
 
 **Message Driven Bean**
+
 7. In the Project window at the top, right click on the Project (Lab10) and choose New Module.
 8. Pick Java Enterprise on the left and EJB:Enterprise Java Beans on the right (in the  Libraries and Frameworks section) [2020: Libraries and Frameworks is on the next screen; check the box for Enterprise Java Beans and uncheck the Servlet box.] Again make sure that TomEE is in the Application Server box. Don't worry about the *Use Library* part below; that will get fixed later. Click Next.
 9. Name the module MDB and click Finish.
@@ -34,7 +35,9 @@ IntelliJ 2020 has a different interface for creating projects. The basic directi
 14. On the Server tab, scroll to the bottom to the Build window. Click the + sign and choose Build Artifacts. Click the box for Lab10: war exploded artifact and click Okay. IMPORTANT: Both Lab10: war exploded and MDB: ejb exploded should show up in the Build window – if one of them is missing, click the + sign, then Build Artifacts, and choose both by checking the boxes. Highlight "Build 2 Artifacts" and click Apply.
 15. Scroll up and click the Deployment tab. Both MDB:ejb exploded and Lab10:war exploded should be in the Deploy window. If not, click the + sign at the bottom, click Artifact, and the window should populate with the other artifact.
 16. Click on Lab10:war exploded. In the Application content text box, make sure it says "/", without the rest of the Lab10 text. Click OK.
+
 **Test the Queue**
+
 17. Now you can run the application – click the green arrow. After it builds (it may take a few moments), a new browser window should pop up. Type in your own message in the text box and click the "Send to … " button. The browser should display that <your message> was written to a queue. More importantly, the Server Output window in Intellij should say, Servlet sent <your message> to queue, and MyQueueListener received: <your message>. (***Note:*** this window will have a lot of system messages in it; scroll around to find MyQueueListener's output). That last print statement is triggered by the queue listener reacting to the queue event.
 
 That's a lot of steps. If something isn't working, here's a list of things to check on before seeking help:
