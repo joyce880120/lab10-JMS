@@ -1,7 +1,8 @@
 # 95-702 Distributed Systems
 # JMS Lab
-# Due: Checkpoint due today (Wednesday, Nov. 18) by the end of lab
+# Due: Checkpoint due today (Wednesday, April 14) by the end of lab
 # Credit is given via Zoom with your TA
+# The whole lab is due by Monday, April 19, 1:30 PM
 
 # Task 1 – Single Queue
 
