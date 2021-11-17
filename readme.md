@@ -3,7 +3,7 @@
 
 # Task 1 – Single Queue
 
-![Task 1 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/blob/master/diagrams/task1.png)        
+![Task 1 Flow](diagrams/task1.png)        
 
 TomEE comes with the JMS implementation of Apache ActiveMQ. To use it, you'll use the @Resource annotation in your Java code to automatically create and access a queue (or more – in the other tasks).  
 
@@ -12,9 +12,15 @@ TomEE comes with the JMS implementation of Apache ActiveMQ. To use it, you'll us
 3. Paste the GitHub repository URL into the dialog box (change the Directory if you like) and select "Clone".
 
 4. When asked whether to "Trust Maven Project", click "Trust Project".
-5. A popup window may say "Frameworks Detected"  (But lost it...)
-6. Add a run configuration
- - 
+5. A popup window may say "Frameworks Detected", but you can ignore and close it.
+6. Click on Run, and you should eventually be sent to a browswer with the URL http://localhost:8080/lab-10/
+7. Enter a message in the input box, replacing "Enter text here", and click on "Submit text to servlet".
+8. You should get a message that your text has been written to the queue.
+9. Look at the TomEE console in IntelliJ, and you should see two messages
+ - "Servlet sent" your text "to jms/myQueue"
+ - "MyQueueListener received:" your text
+
+
 
 
 
