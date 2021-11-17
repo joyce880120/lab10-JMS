@@ -50,6 +50,8 @@ Once you get it working correctly, you should see the console messages of the or
 Finally, we will create a second Servlet that synchronously reads from a queue.
 ![Task 3 Flow](diagrams/task3.png)
 
+Note that the Servlet is not a Listener, rather it synchronously tries to `receive` from the Queue.
+
 1. Modify MyQueueListener to write to myQueue3 instead of myQueue2.
 2. Create a new Servlet called FetchResponses that reads all available messages in myQueue3 and displays them on a web page.  
  - If no messages are available, the servlet should clearly state that on the response page.
