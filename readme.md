@@ -1,14 +1,26 @@
 # 95-702 Distributed Systems
 # JMS Lab
-# Due: Checkpoint due today (Wednesday, April 14) by the end of lab
-# Credit is given via Zoom with your TA
-# The whole lab is due by Monday, April 19, 1:30 PM
 
 # Task 1 – Single Queue
 
-![Task 1 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/blob/master/task1.png)        
+![Task 1 Flow](https://github.com/CMU-Heinz-95702/lab10-JMS/blob/master/diagrams/task1.png)        
 
-TomEE comes with the JMS implementation of Apache ActiveMQ. To use it, you'll use the @Resource annotation in your Java code to automatically create and access a queue (or more – in the other tasks).  Download the Lab10.zip from Canvas. Unzip it; there should be two .java files and one .jsp file; you'll need it in steps 5, 6, and 11.
+TomEE comes with the JMS implementation of Apache ActiveMQ. To use it, you'll use the @Resource annotation in your Java code to automatically create and access a queue (or more – in the other tasks).  
+
+1. From this GitHub repository, click "Code", then copy the URL to Clone the repository.
+2. Start IntelliJ, and from the "Welcome to IntelliJ IDEA" window, choose "Get from Version Control"
+3. Paste the GitHub repository URL into the dialog box (change the Directory if you like) and select "Clone".
+
+4. When asked whether to "Trust Maven Project", click "Trust Project".
+5. A popup window may say "Frameworks Detected"  (But lost it...)
+6. Add a run configuration
+ - 
+
+
+
+
+
+---
 
 In Task 1, you'll be writing a Servlet - nothing special about that at this point - but it will take input from your web browser (that's code in the JSP file) and write it to a *message queue* (see the diagram). The queue will be created for you using the annotations. There will be a second program, an Enterprise Java Bean that will read from that queue and simply output the message to the console.
 
