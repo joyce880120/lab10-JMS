@@ -50,13 +50,14 @@ Once you get it working correctly, you should see the console messages of the or
 Finally, we will create a second Servlet that synchronously reads from a queue.
 ![Task 3 Flow](diagrams/task3.png)
 
-Note that the Servlet is not a Listener, rather it synchronously tries to `receive` from the Queue.
+Note that the FetchResponses Servlet is not a Listener, rather it synchronously tries to `receive` from the Queue.
 
 1. Modify MyQueueListener to write to myQueue3 instead of myQueue2.
 2. Create a new Servlet called FetchResponses that reads all available messages in myQueue3 and displays them on a web page.  
  - If no messages are available, the servlet should clearly state that on the response page.
  - If there are one or more messages in the Queue, all should be displayed.
 
+ Test Task 3 by using MyQueueWriter a few times, then use FetchResponses to retrieve the messages.  CAVEAT: There is an unknown issue with ActiveMQ such that this test does not seem to be repeatable.  In other words, you should be able to use MyQueueWriter again, and then FetchResponses, but in the second set of tests, FetchResponses unexplicably is not able to receive any messages.  If you get the test to work once, then you have met the major learning goals of this lab.
 
  Here are some code hints for synchronously receiving from a Queue:
 
