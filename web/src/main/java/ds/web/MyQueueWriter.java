@@ -16,10 +16,10 @@ import jakarta.servlet.ServletException;
 public class MyQueueWriter extends HttpServlet {
 
     // Lookup the ConnectionFactory using resource injection and assign to cf
-    @Resource(name = "jms/myConnectionFactory")
+    @Resource(mappedName = "jms/myConnectionFactory")
     private ConnectionFactory cf;
     // lookup the Queue using resource injection and assign to q
-    @Resource(name = "jms/myQueue")
+    @Resource(mappedName = "jms/myQueue")
     private Queue q;
 
     @Override
