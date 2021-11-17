@@ -1,30 +1,28 @@
-import javax.ejb.ActivationConfigProperty;
-import javax.ejb.MessageDriven;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageListener;
-import javax.jms.TextMessage;
+import jakarta.ejb.ActivationConfigProperty;
+import jakarta.ejb.MessageDriven;
+import jakarta.jms.*;
 
-// This creates the mapping of this MessageListener to the apropriate Queue
+/*
+ * MyQueueListener is a Message Listener that will listen to jms/myQueue.  Whenever a message
+ * is available in that Queue, the onMessage method will be called with the available message.
+ */
+
+// This creates the mapping of this MessageListener to the appropriate Queue
 @MessageDriven(mappedName = "jms/myQueue", activationConfig = {
         @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge"),
-        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
+        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "jakarta.jms.Queue")
 })
 public class MyQueueListener implements MessageListener {
 
-    public MyQueueListener() {
-    }
-
     /*
-     * When a message is available in jms/myQueue, then onMessage is called.
+     * When a message is available in jms/myQueue, onMessage is called.
      */
     public void onMessage(Message message) {
         try {
-            String tmt = "";
             // Since there can be different types of Messages, make sure this is the right type.
             if (message instanceof TextMessage) {
                 TextMessage tm = (TextMessage) message;
-                tmt = tm.getText();
+                String tmt = tm.getText();
                 System.out.println("MyQueueListener received: " + tmt);
             } else {
                 System.out.println("I don't handle messages of this type");
@@ -36,3 +34,4 @@ public class MyQueueListener implements MessageListener {
         }
     }
 }
+
