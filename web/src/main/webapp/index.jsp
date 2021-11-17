@@ -6,9 +6,7 @@
   <title>JMS Example</title>
 </head>
 <body>
-<h1>Messages entered travel over HTTP to your MyQueueWriter servlet.</h1>
-<h1>The servlet writes the message to a queue</h1>
-<h1>The onMessage method of an MDB is called by the queue.</h1>
+<h3>Enter a message that will be sent to the servlet.</h3>
 <form action="MyQueueWriter">
   <table>
     <tbody>
