@@ -40,7 +40,7 @@ Now that you understand how to send to a Queue, and how to listen to a Queue, le
 ![Task 2 Flow](diagrams/task2.png)
 
 Modify your project in the following ways:
-1. In the same directory as MyQueueListener, create a new class called MyQueueListener2 modeled after MyQueueListener, but have it listed to a new Queue named jms/myQueue2. Modify the string written to the console so you know the string is coming from MyQueueListener2 (not MyQueueListener).
+1. In the same directory as MyQueueListener, create a new class called MyQueueListener2 modeled after MyQueueListener, but have it listen to a new Queue named jms/myQueue2. Modify the string written to the console so you know the string is coming from MyQueueListener2 (not MyQueueListener).
 2. Modify the original MyQueueListener to add text to the message it receives (e.g. <received text> + " after processing by MyQueueListener") and then send the new message to jms/myQueue2. You can find how to write to a Queue from the code in MyQueueWriter.
 
 Once you get it working correctly, you should see the console messages of the original text input in the browser, sent to myQueue, then appended to, sent to myQueue2, and finally also printed by MyQueueListener2.
