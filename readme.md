@@ -59,26 +59,39 @@ Note that the FetchResponses Servlet is not a Listener, rather it synchronously 
  - If no messages are available, the servlet should clearly state that on the response page.
  - If there are one or more messages in the Queue, all should be displayed.
 
- Test Task 3 by using MyQueueWriter a few times, then use FetchResponses to retrieve the messages.  CAVEAT: There is an unknown issue with ActiveMQ such that this test does not seem to be repeatable.  In other words, you should be able to use MyQueueWriter again, and then FetchResponses, but in the second set of tests, FetchResponses unexplicably is not able to receive any messages.  If you get the test to work once, then you have met the major learning goals of this lab.
+ Test Task 3 by using MyQueueWriter a few times, then use FetchResponses to retrieve the messages.  
 
  Here are some code hints for synchronously receiving from a Queue:
 
 ```
+// The following 5 variables should be instance variables:
+
 // Lookup the ConnectionFactory using resource injection and assign to cf
 @Resource(mappedName = "jms/myConnectionFactory")
 private ConnectionFactory cf;
 
-// lookup the Queue using resource injection and assign to q
+// Lookup the Queue using resource injection and assign to q
 @Resource(mappedName = "jms/myQueue3")
 private Queue q;
 
-// With the ConnectionFactory, establish a Connection, and then a Session on that Connection
-Connection con = cf.createConnection();
-Session session = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
-con.start();   // Be sure to start to connection!
+private Connection con;
+private Session session;
+private MessageConsumer reader;
 
+// --------------------------------------------------
+// Within the Servlet's init(), initialize the remaining 3 instance variable
+// With the ConnectionFactory, establish a Connection
+con = cf.createConnection();
+// Establish a Session on that Connection
+session = con.createSession(false, Session.AUTO_ACKNOWLEDGE);
+// Be sure to start to connection
+con.start();
 // Create a MessageConsumer that will read from q
-MessageConsumer reader = session.createConsumer(q);
+reader = session.createConsumer(q);
+
+// --------------------------------------------------
+// Then within the doGet() method, here is the code to receive from a queue
+// You need to add the code to handle the HTTP request and make the response.
 
 /*
  * You can now try to receive a message from q.  If you give a
@@ -88,10 +101,8 @@ MessageConsumer reader = session.createConsumer(q);
  */
 TextMessage tm = null;
 while ((tm = (TextMessage) reader.receive(1000)) != null) {
-    // Do something with tm.getText()
+    // Do something with tm.getText() to add it to the HTTP response
 }
 
-// Close the connection
-con.close();
 ```
 :checkered_flag: **FINISH: Show a working Task 3 to a TA**
