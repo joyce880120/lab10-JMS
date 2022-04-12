@@ -94,4 +94,4 @@ while ((tm = (TextMessage) reader.receive(1000)) != null) {
 // Close the connection
 con.close();
 ```
-:checkered_flag: **FINISH: Show a working Task 3 to your TA**
+:checkered_flag: **FINISH: Show a working Task 3 to a TA**
