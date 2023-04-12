@@ -11,7 +11,8 @@ Task 1 just requires cloning a GitHub repository directly into IntelliJ.
 3. Paste the GitHub repository URL into the dialog box (change the Directory if you like) and select "Clone".
 4. When asked whether to "Trust Maven Project", click "Trust Project".
 5. A popup window may say "Frameworks Detected", but you can ignore and close it.
-6. Once the project has fully loaded, click on Run, and you should eventually be sent to a browser with the URL `http://localhost:8080/lab-10/`
+6. Once the project has fully loaded, click on Run, and you should eventually be sent to a browser with the URL `http://localhost:8080/lab-10/`  
+(You may run into configuration issues to resolve regarding choosing your level of Java and TomEE.  Adjust them to fit your configuration.)
 7. In the browser, enter a message in the input box, replacing "Enter text here", and click on "Submit text to servlet".
 8. You should get a message that your text has been written to the queue.
 9. Look at the IntelliJ TomEE console and you should see two messages
