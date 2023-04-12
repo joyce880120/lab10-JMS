@@ -6,8 +6,8 @@ As discussed in class, TomEE comes packaged with the message oriented middleware
 
 Task 1 just requires cloning a GitHub repository directly into IntelliJ.
 
-1. You are reading the readme.md of a GitHub repository. From this repository, click "Code", then copy the URL to Clone the repository.
-2. Start IntelliJ, and from the "Welcome to IntelliJ IDEA" window, choose "Get from Version Control".  Or if you have other projects already open in IntelliJ, you can use the File menu to select New ... Project from Version Control.
+1. You are reading the readme.md of a GitHub repository. From this repository, click "Code", then the "Local" tab, and copy the URL to Clone the repository.
+2. Start IntelliJ, and from the "Welcome to IntelliJ IDEA" window, choose "Get from Version Control (VCS)".  Or if you have other projects already open in IntelliJ, you can use the File menu to select New ... Project from Version Control.
 3. Paste the GitHub repository URL into the dialog box (change the Directory if you like) and select "Clone".
 4. When asked whether to "Trust Maven Project", click "Trust Project".
 5. A popup window may say "Frameworks Detected", but you can ignore and close it.
