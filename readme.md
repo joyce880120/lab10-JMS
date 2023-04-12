@@ -46,8 +46,6 @@ Modify your project in the following ways:
 
 Once you get it working correctly, you should see the console messages of the original text input in the browser, sent to myQueue, then appended to, sent to myQueue2, and finally also printed by MyQueueListener2.
 
-:checkered_flag: **CHECKPOINT: Completion of Task 2 is the lab checkpoint.**
-
 ## Task 3 – Servlet Reading From a Queue
 
 Finally, we will create a second Servlet that synchronously reads from a queue.
@@ -106,4 +104,4 @@ while ((tm = (TextMessage) reader.receive(1000)) != null) {
 }
 
 ```
-:checkered_flag: **FINISH: Show a working Task 3 to a TA**
+:checkered_flag: **FINISH: Show a working Task 3 to any TA (not just your lab TA) before next Wednesday 2:00pm**
