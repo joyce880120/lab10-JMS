@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>ds</groupId>
-  <artifactId>web</artifactId>
+  <artifactId>lab</artifactId>
   <version>10</version>
   <name>web</name>
   <packaging>war</packaging>
