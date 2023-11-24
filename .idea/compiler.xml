@@ -20,9 +20,5 @@
         <module name="mdb" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="mdb" target="1.8" />
-      <module name="web" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
